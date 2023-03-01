@@ -2,8 +2,8 @@ public class Wind extends AABB {
   
   public Wind(){
    
-    if(page == 2) setSize(300,75);
-    if(page == 3) setSize(height,width);
+   setSize(300,75);
+    
     
     
   }
@@ -12,7 +12,7 @@ public class Wind extends AABB {
     y = mouseY;
     noFill();
     stroke(0);
-    if(page == 2) rect(x-halfW, y-halfH, halfW*2, halfH*2);
+    //if(page == 2) rect(x-halfW, y-halfH, halfW*2, halfH*2);
     noStroke();
     calcEdges();
   
