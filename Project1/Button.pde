@@ -1,67 +1,20 @@
- class Button{
+class Button extends AABB{
   
-  float x,y; //position
-  float w,h; //size
-  boolean rectOver; //is the button selected / on? true/false
-  color rectHighlight, rectColor, currentColor;
-  String label; 
   
- 
- 
- 
- 
- 
- 
- 
- Button(float x, float y, float w, float h, String label, color rectColor, color rectHighlight){
-    this.x = x;
-    this.y = y;
-    this.w = w;
-    this.h = h;
-    this.label = label;
-    this.rectColor = rectColor;
-    this.rectHighlight = rectHighlight;
-   
-
+  Button(float xPos, float yPos, float W, float H){
+     x=xPos;
+     y=yPos;
+    setSize(W,H);
   }
-  void d() {
-  u(mouseX, mouseY);
- 
-  
-  if (rectOver) {
-    fill(rectHighlight);
-  } else {
-    fill(rectColor);
-  }
-  stroke(255);
-  rect(x, y, w, h);
-  
-  
-  }
-  
-  
-
- void u(float x, float y) {
-  if (overRect(x, y, w, h) ) {
-    rectOver = true;
+  void draw() {
     
-  }
-}
+    strokeWeight(10);
+    
+    strokeJoin(ROUND);
+    rect(x-halfW, y-halfH, halfW*2, halfH*2);
+    strokeJoin(SQUARE);
+    noFill();
+    calcEdges();
 
-boolean overRect(float x, float y, float w, float h)  {
-  if (mouseX >= x && mouseX <= x+w && mouseY >= y && mouseY <= y+h) {
-        
-    return true;
-  } else {
-    return false;
   }
 }
-
-void mousePressed() {
-  if (rectOver) {
-    currentColor = rectHighlight;
-  }
-}
-  
-  
-} //end
