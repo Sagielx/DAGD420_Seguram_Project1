@@ -18,7 +18,7 @@ int windTimer=2;
 Button Start;
 Button ballSwitch;
 Button Continue;
-
+Button Learn;
 
 void setup(){
   size(1920, 1080);
@@ -28,19 +28,24 @@ void setup(){
   Start = new Button(width/4,700,400,100);
   ballSwitch = new Button(100,100,100,100);
   Continue = new Button(100,100,100,100);
-  
-  
+  Learn = new Button(width/2 ,700,400,100);  
 }
 
 void draw(){
-  background(#6D76C1
-  );
+  background(#6D76C1);
   dt = calcDeltaTime();
   m.update(dt);
   ground.draw();
   w.draw();
   
-  if(page==0){
+  
+  
+  if(learn ==1){
+    
+  }
+  
+  
+  if(page==0 && learn ==0){
     
     background(#6D76C1);
     textSize(64);
@@ -53,13 +58,21 @@ void draw(){
     fill(#1C69FF);
     stroke(#9ECCE3);
     Start.draw();
+    fill(#0A8E84);
+    stroke(#9ECCE3);
+    Learn.draw();
     fill(255);
     text("Start", width/4-50,700);
+    text("Learn", width/2-50,700);
     noFill();
+    fill(#0A8E84);
+    stroke(#9ECCE3);
+    
     
     if(m.checkOverlap(Start)&&click){
       page++;
   }
+  if(m.checkOverlap(Learn)&&click) learn++;
  }
   
   if(page==1){
